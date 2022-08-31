@@ -2,4 +2,4 @@
 
 ![Reactor Logo](../../Utilities/Images/reactor-logo.png)
 
-# Project Reactor Resources
+# Project Reactor Notes
