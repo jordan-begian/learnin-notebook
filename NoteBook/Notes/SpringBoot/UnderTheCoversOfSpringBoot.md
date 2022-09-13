@@ -103,3 +103,11 @@ There are annotations available within Spring Boot which allows you to state whe
 Demonstration of establishing order of configuration and chain of creating beans 
 
 ![Auto Configure Before and After](../../Utilities/Images/auto-configure-before-after.gif)
+
+## Spring Boot Events
+
+Events that take place during the starting process of a Spring Boot application 
+
+![Spring Boot events when running application](../../Utilities/Images/spring-boot-run-app-events.png)
+
+
