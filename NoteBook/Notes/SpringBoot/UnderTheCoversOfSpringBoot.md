@@ -19,7 +19,7 @@ when configuring a Spring Boot project.
 
 Scans for beans and components within a particular package.
 
-![Component Scan Example](../../Utilities/Images/component-scan.png)
+![Component Scan Example](../../Utilities/Images/SpringBoot/component-scan.png)
 
 If added to a class/package in the root of the project it will be able to scan and detect all beans within the project.  
 If added to a class/package "deeper" into the project it will not scan beans and components that are outside that package.
@@ -34,7 +34,7 @@ There are a few more specialized ways to annotate a component. Those specialized
 purposes for the dedicated stereotype, or have additional
 attributes that are treated differently by Spring Boot.
 
-![Component Examples](../../Utilities/Images/components.png)
+![Component Examples](../../Utilities/Images/SpringBoot/components.png)
 
 Examples of specialized component annotations
 
@@ -61,7 +61,7 @@ and let Spring Boot take care of the rest.
 
 A way to pick and choose what part of the auto configuration is creating environment variables in the `application.properties.yaml` file
 
-![Component Scan and Auto Configuration](../../Utilities/Images/component-scan-vs-auto-configuration.png)
+![Component Scan and Auto Configuration](../../Utilities/Images/SpringBoot/component-scan-vs-auto-configuration.png)
 
 ## Configuration Processor
 
@@ -75,7 +75,7 @@ fields will be added to the metadata for IDE suggestions.
 `@ConditionalOnClass` - process this only on this assigned class or class path
 
 and more...
-![Conditional Configuration Examples](../../Utilities/Images/conditional-configuration-annotations.png)
+![Conditional Configuration Examples](../../Utilities/Images/SpringBoot/conditional-configuration-annotations.png)
 
 ## `@EnableAutoConfiguraiton` Flow
 
@@ -87,11 +87,11 @@ and more...
 3. Gathers all configurations that have met conditions or configurations that do not have conditions
 4. Check functions within classes to see if any conditions are set and if they are met
 
-![Auto Configuration Flow](../../Utilities/Images/auto-configuration-flow.gif)
+![Auto Configuration Flow](../../Utilities/Images/SpringBoot/auto-configuration-flow.gif)
 
 ⬇️ This is the order that the conditional annotations are checked - which is least → most "expensive" ⬇️
 
-![Conditional Configuration Order](../../Utilities/Images/conditional-annotation-order.png)
+![Conditional Configuration Order](../../Utilities/Images/SpringBoot/conditional-annotation-order.png)
 
 ## Setting The Order of Auto Configurations
 
@@ -102,12 +102,36 @@ There are annotations available within Spring Boot which allows you to state whe
 
 Demonstration of establishing order of configuration and chain of creating beans 
 
-![Auto Configure Before and After](../../Utilities/Images/auto-configure-before-after.gif)
+![Auto Configure Before and After](../../Utilities/Images/SpringBoot/auto-configure-before-after.gif)
 
 ## Spring Boot Events
 
-Events that take place during the starting process of a Spring Boot application 
+Events that take place during the starting process of a Spring Boot application.
+These events essentially is **the checklist before 'takeoff'** where any configurations are accounted for and implemented
+based on what is provided to the application.
 
-![Spring Boot events when running application](../../Utilities/Images/spring-boot-run-app-events.png)
+![Spring Boot events when running application](../../Utilities/Images/SpringBoot/spring-boot-run-app-events.png)
 
+## Failure Analyzer
 
+Provide a readable message that describes what's the problem and what's needed to be done. This is easier to understand
+compared to having a large stack trace provided. The Failure Analyzer is ran regardless of the user configuration.
+
+**Fun Fact:** This was developed by Spring out of a frustration of having to dig through stack traces when trying to
+develop and debug Spring configuration features.
+
+![Examples of failure analyzer](../../Utilities/Images/SpringBoot/spring-failure-analyzer.png)
+
+### ⬇️ The failure analyzer is customizable ⬇️
+
+![Example of custom failure analyzer](../../Utilities/Images/SpringBoot/custom-failure-analyzer.png)  
+Configuration example of **custom failure analyzer**
+
+![Custom exception for failure analyzer](../../Utilities/Images/SpringBoot/custom-failure-analyzer-exception.png)  
+Custom `RuntimeException` that is being utilized in the **custom failure analyzer**
+
+![Spring factory custom failure analyzer](../../Utilities/Images/SpringBoot/failure-analyzer-spring-factory.png)  
+The **custom failure analyzer** will need to be added to the applications spring factories 
+
+![Custom failure analyzer runtime example](../../Utilities/Images/SpringBoot/custom-failure-analyzer-runtime.png)  
+Example of run logs with the implemented **custom failure analyzer**
