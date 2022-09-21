@@ -89,3 +89,19 @@ This is something that would be utilized with **unit testing**.
 
 An instance of `StepVerifier` can be created via `.create()`, configured via a [DSL](https://docs.spring.io/spring-integration/docs/5.1.0.M1/reference/html/java-dsl.html)
 for setting expectations, and finish with a single terminal expectation (completion, error, cancellation...)
+
+When utilizing `StepVerifier` some form of `verify()` method **needs to be used**. If it is not used, the `StepVerifier` won't
+subscribe to the sequence and nothing will be asserted.
+
+### StepVerifier Example
+
+```
+StepVerifier.create(T<Publisher>).{expectations...}.verify()
+```
+
+## Transform
+
+Reactor has several operators that can be used to transform data. This means that when the subscriber receives data, it
+then can take that data and transform it into something else. 
+
+[Here's an overview of ways to transform existing data with Reactor](https://projectreactor.io/docs/core/release/reference/#which.values)
