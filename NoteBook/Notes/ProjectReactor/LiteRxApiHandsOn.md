@@ -104,4 +104,14 @@ StepVerifier.create(T<Publisher>).{expectations...}.verify()
 Reactor has several operators that can be used to transform data. This means that when the subscriber receives data, it
 then can take that data and transform it into something else. 
 
-[Here's an overview of ways to transform existing data with Reactor](https://projectreactor.io/docs/core/release/reference/#which.values)
+###### [Reactor Transform Overview](https://projectreactor.io/docs/core/release/reference/#which.values)
+
+## Merge
+
+Merging sequences is utilized when listening for values from multiple Publishers, merging the data retrieved and returning
+a single Flux. 
+
+**Note:** Examples of ways to merge data from multiple publishers can be found [using the link above](LiteRxApiHandsOn.md#reactor-transform-overviewhttpsprojectreactoriodocscorereleasereferencewhichvalues)
+and looking for the bullet point stating **"I want to combine publishers..."** 
+
+## Request 
