@@ -1,5 +1,5 @@
 
-# 📓 Free Agent Notebook
+# 📓 Learnin' Notebook
 
 A hub for documenting resouces, writing down notes, and code examples.
 
