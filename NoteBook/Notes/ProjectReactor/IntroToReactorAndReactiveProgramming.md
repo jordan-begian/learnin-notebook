@@ -11,7 +11,7 @@ A hands on intro course developed by Project Reactor
 [Flux](#flux)  
 [Mono](#mono)  
 [StepVerifier](#stepverifier)  
-[Transform](#transform)
+[Transform](#transform)  
 [Merge](#merge)  
 [Request](#request)
 
