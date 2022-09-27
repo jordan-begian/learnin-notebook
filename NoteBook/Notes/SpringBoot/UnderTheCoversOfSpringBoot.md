@@ -74,7 +74,7 @@ fields will be added to the metadata for IDE suggestions.
 `@ConditionalOnMissingBean` - process this configuration when the assigned bean type is missing or not found  
 `@ConditionalOnClass` - process this only on this assigned class or class path
 
-and more...
+and more...  
 ![Conditional Configuration Examples](../../Utilities/Images/SpringBoot/conditional-configuration-annotations.png)
 
 ## `@EnableAutoConfiguraiton` Flow
