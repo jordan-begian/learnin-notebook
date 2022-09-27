@@ -1,7 +1,7 @@
 
 # 📓 Learnin' Notebook
 
-A hub for documenting resouces, writing down notes, and code examples.
+My goal for this repo is to gather worthwhile software development educational resources and to create notes that are straightforward for myself and potentially others.
 
 ## 📦 Contents
 
