@@ -1,9 +1,10 @@
-[↑ Back to Spring Boot Notes](Contents.md)  
+[↑ Back to Project Reactor Notes](Contents.md)  
 [← Home](/README.md)
 
-# [Intro to Reactor and Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)
+# Intro to Reactor and Reactive Programming
 
-A hands on intro course developed by Project Reactor
+A hands on intro course developed by Project Reactor  
+🔗 [Link to course](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)
 
 ## Contents
 
