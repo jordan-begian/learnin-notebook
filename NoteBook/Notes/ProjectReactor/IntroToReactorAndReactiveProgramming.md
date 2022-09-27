@@ -1,7 +1,21 @@
 [↑ Back to Spring Boot Notes](Contents.md)  
 [← Home](/README.md)
 
-# [Lite RX API Hands On](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)
+# [Intro to Reactor and Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro)
+
+A hands on intro course developed by Project Reactor
+
+## Contents
+
+[Introduction to Reactive Programming](#introduction-to-reactive-programming)  
+[Flux](#flux)  
+[Mono](#mono)  
+[StepVerifier](#stepverifier)  
+[Transform](#transform)
+[Merge](#merge)  
+[Request](#request)
+
+---
 
 ## Introduction to Reactive Programming
 
@@ -63,14 +77,14 @@ Flux.fromIterable(getSomeLongList())
 
 **Mono** is a Reactive Streams Publisher that can be used to generate, transform and orchestrate Mono sequences via **operators**
 
-It is a specialization of Flux that can emit **at most 1 element**
+It is a specialization of **Flux** that can emit **at most 1 element**
 - Valued (complete with element)
 - Empty (complete without element)
 - Failed (error)
 
 ![Mono Sequence](../../Utilities/Images/ProjectReactor/mono-sequence.png)
 
-`Mono<Void>`is something that can be utilized when only the completion signal is interesting
+`Mono<Void>` is something that can be utilized when only the completion signal is interesting
 
 ### Mono Example
 
@@ -104,14 +118,14 @@ StepVerifier.create(T<Publisher>).{expectations...}.verify()
 Reactor has several operators that can be used to transform data. This means that when the subscriber receives data, it
 then can take that data and transform it into something else. 
 
-###### [Reactor Transform Overview](https://projectreactor.io/docs/core/release/reference/#which.values)
+#### [Reactor Transform Overview](https://projectreactor.io/docs/core/release/reference/#which.values)
 
 ## Merge
 
 Merging sequences is utilized when listening for values from multiple Publishers, merging the data retrieved and returning
 a single Flux. 
 
-**Note:** Examples of ways to merge data from multiple publishers can be found [using the link above](LiteRxApiHandsOn.md#reactor-transform-overviewhttpsprojectreactoriodocscorereleasereferencewhichvalues)
-and looking for the bullet point stating **"I want to combine publishers..."** 
+**Note:** Examples of ways to merge data from multiple publishers can be found [using the link above](#reactor-transform-overview)
+and looking for the bullet point stating `"I want to combine publishers..."` 
 
 ## Request 
