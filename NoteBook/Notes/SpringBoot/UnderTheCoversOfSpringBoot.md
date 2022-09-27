@@ -1,9 +1,25 @@
 [↑ Back to Spring Boot Notes](Contents.md)  
 [← Home](/README.md)
 
-[![Spring Developer Video](https://img.youtube.com/vi/jDchAEHIht0/0.jpg)](https://www.youtube.com/watch?v=jDchAEHIht0)
-
 # Under The Covers of Spring Boot
+
+An overview of the "magic" behind a Spring Boot applicatons configuration and start process.  
+🔗 [Link to video](https://www.youtube.com/watch?v=jDchAEHIht0)
+
+## Contents
+
+[`@SpringBootApplication`](#springbootapplication)   
+[`@ComponentScan`](#componentscan)  
+[`@Component`](#component)  
+[`@ComponentScan` & `@EnableAutoConfiguration`](#componentscan--enableautoconfiguration)  
+[Configuration Processor](#configuration-processor)  
+[Conditional Configurations](#conditional-configurations)  
+[`@EnableAutoConfiguraiton` Flow](#enableautoconfiguraiton-flow)  
+[Setting The Order of Auto Configurations](#setting-the-order-of-auto-configurations)  
+[Spring Boot Events](#spring-boot-events)  
+[Failure Analyzer](#failure-analyzer)
+
+---
 
 ## `@SpringBootApplication` 
 
