@@ -1,3 +1,4 @@
+![power glove typing](NoteBook/Utilities/Images/power-glove-typing.gif)
 
 # 📓 Learnin' Notebook
 

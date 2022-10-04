@@ -63,7 +63,7 @@ Flux can emit 0 to _n_ elements via `onNext`events
 
 ### Flux Example
 
-```
+```java
 Flux.fromIterable(getSomeLongList())
     .delayElements(Duration.ofMillis(100))
     .doOnNext(serviceA::someObserver)
@@ -89,7 +89,7 @@ It is a specialization of **Flux** that can emit **at most 1 element**
 
 ### Mono Example
 
-```
+```java
 Mono.firstWithValue(
         Mono.just(1).map(integer -> "foo" + integer),
         Mono.delay(Duration.ofMillis(100)).thenReturn("bar")
@@ -110,7 +110,7 @@ subscribe to the sequence and nothing will be asserted.
 
 ### StepVerifier Example
 
-```
+```java
 StepVerifier.create(T<Publisher>).{expectations...}.verify()
 ```
 
@@ -119,7 +119,7 @@ StepVerifier.create(T<Publisher>).{expectations...}.verify()
 Reactor has several operators that can be used to transform data. This means that when the subscriber receives data, it
 then can take that data and transform it into something else. 
 
-#### [Reactor Transform Overview](https://projectreactor.io/docs/core/release/reference/#which.values)
+#### [Reactor Transform](https://projectreactor.io/docs/core/release/reference/#which.values)
 
 ## Merge
 
@@ -130,3 +130,21 @@ a single Flux.
 and looking for the bullet point stating `"I want to combine publishers..."` 
 
 ## Request 
+
+**Backpressure** a feedback mechanism that allows a **Subscriber** to signal to its **Publisher** how much data it is prepared to process, limiting the rate at which the **Publisher** produces data. 
+
+**AKA:** A way that the **Subscriber** can inform the **Publisher** how much data it can consume
+
+Backpressure is configured at the **Subscription** level.
+
+`subscribe()` - creates a **Subscription**  
+`cancel()` - cancels the flow of data  
+`request(long)` - tunes demand of data
+
+**Request Example:** `request(Long.MAX_VALUE)` - **Publisher** will emit data at its fastest pace due to request demand is essentially unbound. 
+
+[Backpressure Overview](https://projectreactor.io/docs/core/release/reference/#reactive.backpressure)  
+[Subscribe Method Examples](https://projectreactor.io/docs/core/release/reference/#_subscribe_method_examples)  
+[Peeking into a Sequence](https://projectreactor.io/docs/core/release/reference/#which.peeking)
+
+## Error
