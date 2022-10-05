@@ -18,7 +18,7 @@ A hands on intro course developed by Project Reactor
 [Error](#error)  
 [Adapt](#adapt)  
 
-### 📝 Note: 
+### 📝 Note 
 
 Each topic has a set of exercises, if utilizing the course they will appear on each topics page. If you are utilizing just the notebook here are links to the GitHub repo conatining the exercises and solutions. 
 
@@ -201,7 +201,7 @@ Reactor 3 has the ability to interact with [RxJava3](https://reactivex.io/intro.
 🔗 [`Observable`]()  
 🔗 [`Flowable.toObservable()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html#toObservable--)  
 🔗 [`Observable.toFlowable()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Observable.html#toFlowable-io.reactivex.rxjava3.core.BackpressureStrategy-)  
-🔗 [BackpressureStrategy](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/BackpressureStrategy.html)
+🔗 [`BackpressureStrategy`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/BackpressureStrategy.html)
 
 ### `Mono` ↔️ `Single`
 
