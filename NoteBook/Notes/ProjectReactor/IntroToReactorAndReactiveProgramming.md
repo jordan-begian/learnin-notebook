@@ -235,3 +235,6 @@ Reactor 3 has the ability to interact with [RxJava3](https://reactivex.io/intro.
 		return Mono.fromFuture(future);
 	}
 ```
+
+🔗 [`Mono.toFuture`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html#toFuture--)  
+🔗 [`Mono.fromFuture`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html#fromFuture-java.util.concurrent.CompletableFuture-)  
