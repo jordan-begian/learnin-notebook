@@ -14,7 +14,16 @@ A hands on intro course developed by Project Reactor
 [StepVerifier](#stepverifier)  
 [Transform](#transform)  
 [Merge](#merge)  
-[Request](#request)
+[Request](#request)  
+[Error](#error)  
+[Adapt](#adapt)  
+
+### 📝 Note: 
+
+Each topic has a set of exercises, if utilizing the course they will appear on each topics page. If you are utilizing just the notebook here are links to the GitHub repo conatining the exercises and solutions. 
+
+🔗 [Intro to Reactor Topics Exercises](https://github.com/reactor/lite-rx-api-hands-on/tree/techio_course/src/main/java/io/pivotal/literx)  
+🔗 [Intro to Reactor Topics Solutions](https://github.com/reactor/lite-rx-api-hands-on/tree/solution/src/main/java/io/pivotal/literx)  
 
 ---
 
@@ -119,14 +128,14 @@ StepVerifier.create(T<Publisher>).{expectations...}.verify()
 Reactor has several operators that can be used to transform data. This means that when the subscriber receives data, it
 then can take that data and transform it into something else. 
 
-#### [Reactor Transform](https://projectreactor.io/docs/core/release/reference/#which.values)
+#### 🔗 [Transform Overview](https://projectreactor.io/docs/core/release/reference/#which.values)
 
 ## Merge
 
 Merging sequences is utilized when listening for values from multiple Publishers, merging the data retrieved and returning
 a single Flux. 
 
-**Note:** Examples of ways to merge data from multiple publishers can be found [using the link above](#reactor-transform-overview)
+**Note:** Examples of ways to merge data from multiple publishers can be found [using the link above](#🔗-transform-overview)
 and looking for the bullet point stating `"I want to combine publishers..."` 
 
 ## Request 
@@ -143,8 +152,86 @@ Backpressure is configured at the **Subscription** level.
 
 **Request Example:** `request(Long.MAX_VALUE)` - **Publisher** will emit data at its fastest pace due to request demand is essentially unbound. 
 
-[Backpressure Overview](https://projectreactor.io/docs/core/release/reference/#reactive.backpressure)  
-[Subscribe Method Examples](https://projectreactor.io/docs/core/release/reference/#_subscribe_method_examples)  
-[Peeking into a Sequence](https://projectreactor.io/docs/core/release/reference/#which.peeking)
+🔗 [Backpressure Overview](https://projectreactor.io/docs/core/release/reference/#reactive.backpressure)  
+🔗 [Subscribe Method Examples](https://projectreactor.io/docs/core/release/reference/#_subscribe_method_examples)  
+🔗 [Peeking into a Sequence](https://projectreactor.io/docs/core/release/reference/#which.peeking)
 
 ## Error
+
+Reactor ships with several tools that can be used to handle, recover from and even retry a new **Subscription**. The main goal with handling errors still stands, catch them and handle them gracefully.
+
+🔗 [Error Handling Operators Overview](https://projectreactor.io/docs/core/release/reference/#_error_handling_operators)  
+🔗 [Handling Errors Overview](https://projectreactor.io/docs/core/release/reference/#_error_handling_operators)
+
+## Adapt
+
+Reactor 3 has the ability to interact with [RxJava3](https://reactivex.io/intro.html) without having to utilize a library inbetween to translate. This can help with projects that are utilizing RxJava3 to leverage Reactor 3 with less complexity and re-work. 
+
+### `Flux` ↔️ `Flowable`
+
+```java
+	// Adapt Flux to RxJava Flowable
+	Flowable<User> fromFluxToFlowable(Flux<User> flux) {
+		return Flowable.fromPublisher(flux);
+	}
+
+	// Adapt RxJava Flowable to Flux
+	Flux<User> fromFlowableToFlux(Flowable<User> flowable) {
+		return Flux.from(flowable);
+	}
+```
+
+🔗 [`Flux.from()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#from-org.reactivestreams.Publisher-)  
+🔗 [`Flowable.fromPublisher()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html#fromPublisher-org.reactivestreams.Publisher-)
+
+### `Flux` ↔️ `Flowable` ↔️ `Observable`
+
+```java
+	// Adapt Flux to RxJava Observable
+	Observable<User> fromFluxToObservable(Flux<User> flux) {
+		return Flowable.fromPublisher(flux).toObservable();
+	}
+
+	// Adapt RxJava Observable to Flux
+	Flux<User> fromObservableToFlux(Observable<User> observable) {
+		return Flux.from(observable.toFlowable(BackpressureStrategy.BUFFER));
+	}
+```
+
+🔗 [`Observable`]()  
+🔗 [`Flowable.toObservable()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html#toObservable--)  
+🔗 [`Observable.toFlowable()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Observable.html#toFlowable-io.reactivex.rxjava3.core.BackpressureStrategy-)  
+🔗 [BackpressureStrategy](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/BackpressureStrategy.html)
+
+### `Mono` ↔️ `Single`
+
+```java
+	// Adapt Mono to RxJava Single
+	Single<User> fromMonoToSingle(Mono<User> mono) {
+		return Single.fromPublisher(mono);
+	}
+
+	// Adapt RxJava Single to Mono
+	Mono<User> fromSingleToMono(Single<User> single) {
+		return Mono.from(Flowable.fromSingle(single));
+	}
+```
+
+🔗 [`Single`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html)  
+🔗 [`Mono.from()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html)  
+🔗 [`Flowable.fromSingle()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html#fromSingle-io.reactivex.rxjava3.core.SingleSource-)  
+🔗 [`Single.fromPublisher()`](https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html#fromPublisher-org.reactivestreams.Publisher-) 
+
+### `Mono` ↔️ `CompletableFuture`
+
+```java
+	// Adapt Mono to Java 8+ CompletableFuture
+	CompletableFuture<User> fromMonoToCompletableFuture(Mono<User> mono) {
+		return mono.toFuture();
+	}
+
+	// Adapt Java 8+ CompletableFuture to Mono
+	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) {
+		return Mono.fromFuture(future);
+	}
+```
