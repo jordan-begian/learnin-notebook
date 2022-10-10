@@ -18,6 +18,8 @@ A hands on intro course developed by Project Reactor
 [Error](#error)  
 [Adapt](#adapt)
 [Other Operations](#other-operations)  
+[Reactive to Blocking](#reactive-to-blocking)  
+[Blocking to Reactive](#blocking-to-reactive)  
 
 ### 📝 Note 
 
