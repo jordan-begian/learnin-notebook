@@ -4,7 +4,7 @@
 
 # TypeScript Resources
 
-## TypeScript
+## Straight from the Source - TypeScript
 
 - [TypeScript Documentation Landing Page](https://www.typescriptlang.org/docs/)
 - [TypeScript Handbook PDF](https://www.typescriptlang.org/assets/typescript-handbook.pdf)
@@ -13,6 +13,10 @@
 - [TypeScript Search](https://www.typescriptlang.org/dt/search?search=)
 - [TypeScrip Playground](https://www.typescriptlang.org/play)
 
-## TotallyTypeScript
+## Tutorials
 
-- [Beginner's TypeScript Tutorial](https://www.totaltypescript.com/tutorials/beginners-typescript)
+- [Total TypeScript - Beginner's TypeScript Tutorial](https://www.totaltypescript.com/tutorials/beginners-typescript)
+
+## Exercises
+
+- [TypeScript Exercises](https://typescript-exercises.github.io/)
