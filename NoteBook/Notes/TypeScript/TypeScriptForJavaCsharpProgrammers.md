@@ -4,7 +4,11 @@
 # TypeScript for Java/C# Programmers
 
 A "5-minute" overview of TypeScript for Java/C# Programmers  
-[Link to overview](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html)  
+[Link to overview](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html)
+
+**Quick Summary:** What throws off a lot of OOP developers when learning TypeScript is the different way **types** are handled.  
+TypeScript does provide the ability to leverage OOP practices, but at its core, it's JavaScript. With that being said, **types**
+are handled more along the lines of a **set of values** or a **structure** instead of a strict declaration. 
 
 ## Co-learning JavaScript
 
