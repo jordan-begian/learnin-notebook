@@ -14,19 +14,19 @@ This helps explain some of the common misconceptions and pitfalls other Java/C# 
 
 ### If New to JavaScript
 
-It's reccomended to learn **a little bit** of JavaScript without types first to understand it's runtime behaviors.
+It's recommended to learn **a little bit** of JavaScript without types first to understand its runtime behaviors.
 
 TypeScript uses the same runtime as JavaScript, so it's good to not limit to **only** TypeScript-specific resources. 
 
 ## Rethinking the Class
 
-Java/C# approach to classes is mainly code orginization, and a container for all data and behavior at runtime. 
+Java/C# approach to classes is mainly code organization, and a container for all data and behavior at runtime. 
 
 With TypeScript functionality and data doesn't always need to be forced into a class.
 
 ### Free Functions and Data
 
-With JavaScript functions can live anywhere and data can be passed around without a pre-defined [`class`](https://www.w3schools.com/java/java_classes.asp) or [`struct`](https://www.w3schools.com/c/c_structs.php). "Free" funcitons tend to be preferred model for JavaScript. 
+With JavaScript functions can live anywhere and data can be passed around without a pre-defined [`class`](https://www.w3schools.com/java/java_classes.asp) or [`struct`](https://www.w3schools.com/c/c_structs.php). "Free" functions tend to be the preferred model for JavaScript. 
 
 ### Static Classes 
 
@@ -42,9 +42,9 @@ TypeScript type ≠ Java/C# type
 
 ### Nominal Reified Type Systems 
 
-Java/C# value or objects has one exact type - `null`, primative, or a known class type. Methods like `value.GetType()` or `value.getClass()` to find exact type at runtime. Due to the type residing in a class somewhere, this prevents using a different class with a similar "shape" unless there's explicit inheritance or an interface.
+Java/C# value or objects has one exact type - `null`, primitive, or a known class type. Methods like `value.GetType()` or `value.getClass()` to find exact type at runtime. Due to the type residing in a class somewhere, this prevents using a different class with a similar "shape" unless there's explicit inheritance or an interface.
 
-**TL;DR** - types wrote in code are present at runtime, and the types are related via their declarations, not their structures. 
+**TL;DR** - types written in code are present at runtime, and the types are related via their declarations, not their structures. 
 
 ### Types as Sets
 
@@ -52,13 +52,13 @@ Java/C# value or objects has one exact type - `null`, primative, or a known clas
 
 **TypeScript** types are a **set of values** that share something in common. This allows a value to belong to **many** sets at the same time. 
 
-Looking and utilizing types as sets allows for a easier approach to handling a value that could fall under being a `string` or `int`. With TypeScript it belongs to the union of those sets: `string | number`. 
+Looking and utilizing types as sets allows for an easier approach to handling a value that could fall under being a `string` or `int`. With TypeScript it belongs to the union of those sets: `string | number`. 
 
 TypeScript out of the box has a number of tools to work with types in a set-theoretic way. 
 
 ### Erased Structural Types
 
-TypeScript's type syste is structural, not nominal. 
+TypeScript's type system is structural, not nominal. 
 
 In the example below `obj` is passed into function `logPoint()` and `logName()` which both accept different types, but the same `obj` value is provided. 
 
@@ -125,7 +125,7 @@ fn({ k: 10 });
 ```
 This **does not** result in an error due to TypeScript views the argument having **all** the properties `Empty` does, due to `Empty` not having any arguments. 
 
-**The point** - A subclass cannot **remove** a property of its base class, doing so would destroy the relationship between the derived class adn it's base.
+**The point** - A subclass cannot **remove** a property of its base class, doing so would destroy the relationship between the derived class and its base.
 
 #### **Identical Types**
 
@@ -148,8 +148,6 @@ class Golfer {
 let w: Car = new Golfer();
 ```
 
-This **also** does not result in an error due to the **structure** of these classes are the same.
+This **also** does not result in an error due to the **structure** of these classes being the same.
 
 Identical classes that shouldn't be related, like the example, are not common.
-
-
